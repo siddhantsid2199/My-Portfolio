@@ -22,24 +22,31 @@ const ProjectCard = ({ project, aosDelay }) => (
         : 'bg-white/10 hover:bg-white/20'
     }`}
   >
-    <div className={`rounded-2xl p-6 md:p-8 h-full backdrop-blur-md transition-all duration-500 ${
+    <div className={`rounded-2xl p-5 md:p-6 h-full backdrop-blur-md transition-all duration-500 flex flex-col ${
       project.isFlagship 
         ? 'bg-[#0f0f0f]/95 group-hover:bg-[#0f0f0f]/90' 
         : 'bg-[#111111]/90 group-hover:bg-[#111111]/80'
     }`}>
       <a
-        href={project.documentUrl}
+        href={project.documentUrl || project.links.demo || project.links.github}
         target="_blank"
         rel="noopener noreferrer"
-        className="block overflow-hidden rounded-xl mb-7 border border-white/10 bg-black"
-        aria-label={`Open ${project.title} report`}
+        className="block overflow-hidden rounded-xl mb-5 border border-white/10 bg-black"
+        aria-label={`Open ${project.title}`}
       >
-        <img
-          src={project.image}
-          alt={`${project.title} dashboard preview`}
-          loading="lazy"
-          className="w-full aspect-[16/9] object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
-        />
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            loading="lazy"
+            className="w-full aspect-[16/9] object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
+          />
+        ) : (
+          <div className="w-full aspect-[16/9] bg-[radial-gradient(circle_at_top_right,rgba(255,42,42,0.35),transparent_45%),linear-gradient(135deg,#171717,#090909)] flex flex-col items-center justify-center">
+            <span className="text-5xl md:text-6xl font-black text-white">AYX</span>
+            <span className="text-red-400 text-xs font-black tracking-[0.25em] uppercase mt-3">Workflow Automation</span>
+          </div>
+        )}
       </a>
       {/* Badge */}
       {project.badge && (
@@ -51,11 +58,11 @@ const ProjectCard = ({ project, aosDelay }) => (
       {/* Number + Title */}
       <div className="flex items-baseline gap-4 mb-4">
         <span className="text-5xl font-black text-white/10 font-serif italic">{project.number}</span>
-        <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight">{project.title}</h3>
+        <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">{project.title}</h3>
       </div>
 
       {/* Description */}
-      <p className="text-white/60 text-sm md:text-base leading-relaxed mb-6 max-w-2xl font-medium">
+      <p className="text-white/60 text-sm leading-relaxed mb-5 max-w-2xl font-medium">
         {project.description}
       </p>
 
@@ -68,7 +75,7 @@ const ProjectCard = ({ project, aosDelay }) => (
       </div>
 
       {/* Tech Tags */}
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div className="flex flex-wrap gap-2 mb-6">
         {project.techTags.map((tag) => (
           <span 
             key={tag}
@@ -80,16 +87,18 @@ const ProjectCard = ({ project, aosDelay }) => (
       </div>
 
       {/* Action Buttons */}
-      <div className="flex flex-wrap gap-3">
-        <a
-          href={project.documentUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff2a2a] text-white text-sm font-semibold hover:bg-red-600 hover:shadow-[0_0_20px_rgba(255,42,42,0.4)] transition-all duration-300"
-        >
-          <ExternalLinkIcon />
-          View Dashboard
-        </a>
+      <div className="flex flex-wrap gap-3 mt-auto">
+        {project.documentUrl && project.showDocumentButton !== false && (
+          <a
+            href={project.documentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff2a2a] text-white text-sm font-semibold hover:bg-red-600 hover:shadow-[0_0_20px_rgba(255,42,42,0.4)] transition-all duration-300"
+          >
+            <ExternalLinkIcon />
+            View Project
+          </a>
+        )}
         {/* GitHub */}
         {project.links.github && (
           <a 
@@ -120,37 +129,27 @@ const ProjectCard = ({ project, aosDelay }) => (
           </a>
         )}
 
-        {/* Frontend Demo (Karigar) */}
-        {project.links.frontendDemo && (
-          <a 
-            href={project.links.frontendDemo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff2a2a] text-white text-sm font-semibold hover:bg-red-600 hover:shadow-[0_0_20px_rgba(255,42,42,0.4)] transition-all duration-300"
-          >
-            <ExternalLinkIcon />
-            Frontend Demo
-          </a>
-        )}
-
-        {/* Backend API (Karigar) */}
-        {project.links.backendApi && (
-          <a 
-            href={project.links.backendApi}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-semibold hover:bg-white/20 transition-all duration-300"
-          >
-            <ExternalLinkIcon />
-            Backend API
-          </a>
-        )}
       </div>
     </div>
   </div>
 );
 
 const Projects = () => {
+  const priorityOrder = [
+    "population-health",
+    "virtual-vault",
+    "alteryx-workflows",
+    "weekly-issues-power-app",
+  ];
+  const orderedProjects = [...projects].sort((a, b) => {
+    const aIndex = priorityOrder.indexOf(a.id);
+    const bIndex = priorityOrder.indexOf(b.id);
+    if (aIndex === -1 && bIndex === -1) return 0;
+    if (aIndex === -1) return 1;
+    if (bIndex === -1) return -1;
+    return aIndex - bIndex;
+  });
+
   return (
     <section id="projects" className="bg-[#0a0a0a] pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]">
       <div className="max-w-6xl mx-auto">
@@ -169,11 +168,11 @@ const Projects = () => {
         </div>
 
         {/* Project Cards */}
-        <div className="flex flex-col gap-6 md:gap-8">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+          {orderedProjects.map((project, index) => (
             <ProjectCard 
               key={project.id} 
-              project={project} 
+              project={{ ...project, number: String(index + 1).padStart(2, "0") }}
               aosDelay={String((index + 1) * 100)}
             />
           ))}

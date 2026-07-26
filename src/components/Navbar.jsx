@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { personalInfo } from '../data/portfolioData';
 
-const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'];
+const navLinks = ['Home', 'About', 'Skills', 'Experience', 'Projects', 'Recommendations', 'Contact'];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +24,7 @@ const Navbar = () => {
           {personalInfo.brandName}<span className="text-red-500">.</span>
         </a>
 
-        <div className="hidden md:flex space-x-5 lg:space-x-8">
+        <div className="hidden lg:flex space-x-5 xl:space-x-8">
           {navLinks.map((link) => (
             <a key={link} href={`#${link.toLowerCase()}`} className="text-white/80 hover:text-white text-sm lg:text-base font-medium relative group transition-colors duration-300">
               {link}
@@ -33,14 +33,14 @@ const Navbar = () => {
           ))}
         </div>
 
-        <a href={hireMeMailto} className="hidden md:block px-5 lg:px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-md">
+        <a href={hireMeMailto} className="hidden xl:block px-6 py-2.5 rounded-full bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-md">
           Contact Me
         </a>
 
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white focus:outline-none p-2"
+          className="lg:hidden text-white focus:outline-none p-2"
           aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
           aria-expanded={isOpen}
         >
@@ -52,8 +52,8 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-        isOpen ? 'max-h-[28rem] py-4 opacity-100 bg-[#ff2a2a] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
+      <div className={`lg:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
+        isOpen ? 'max-h-[34rem] py-4 opacity-100 bg-[#ff2a2a] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
       }`}>
         <div className="flex flex-col px-6 space-y-4">
           {navLinks.map((link) => (
