@@ -1,3 +1,4 @@
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import stackImage from '../assets/siddhant/hero-image.png';
 import { aboutContent, personalInfo } from '../data/portfolioData';
 
@@ -15,26 +16,59 @@ const StackMark = ({ short, label, color }) => (
   </div>
 );
 
+const HangingPortrait = () => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const threadLength = useTransform([x, y], ([latestX, latestY]) => {
+    const verticalDistance = 140 + latestY;
+    return Math.sqrt((latestX * latestX) + (verticalDistance * verticalDistance)) / 140;
+  });
+  const threadRotation = useTransform([x, y], ([latestX, latestY]) => (
+    -Math.atan2(latestX, 140 + latestY) * (180 / Math.PI)
+  ));
+
+  return (
+    <div data-aos="drop-bounce" className="relative flex justify-center w-full">
+      <motion.div
+        aria-hidden="true"
+        className="absolute -top-32 left-1/2 w-3 h-40 bg-black -translate-x-1/2 shadow-inner z-0 origin-top"
+        style={{ scaleY: threadLength, rotate: threadRotation }}
+      />
+      <motion.div
+        drag
+        dragSnapToOrigin
+        dragConstraints={{ left: -85, right: 85, top: -30, bottom: 95 }}
+        dragElastic={0.12}
+        dragTransition={{ bounceStiffness: 460, bounceDamping: 24 }}
+        style={{ x, y }}
+        animate={{ rotate: -3 }}
+        whileHover={{ rotate: 0 }}
+        whileDrag={{ scale: 1.025, cursor: 'grabbing' }}
+        className="bg-gray-900 w-full max-w-[280px] rounded-2xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative z-20 -rotate-3 cursor-grab touch-none select-none"
+        aria-label="Draggable hanging portrait"
+      >
+        <div className="absolute -top-6 left-1/2 w-6 h-12 bg-gray-300 rounded border border-gray-400 -translate-x-1/2 z-10 shadow-[0_2px_10px_rgba(0,0,0,0.3)]" />
+        <div className="absolute -top-3 left-1/2 w-16 h-6 bg-gray-900 rounded-t-xl -translate-x-1/2 flex justify-center items-center">
+          <div className="w-8 h-2 bg-black/30 rounded-full shadow-inner" />
+        </div>
+        <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-800 border-2 border-transparent pointer-events-none">
+          <img
+            src={stackImage}
+            alt={`${personalInfo.name} — ${personalInfo.title}`}
+            draggable="false"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
 const About = () => (
   <section id="about" className="bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
     <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
       <div className="flex flex-col items-center w-full md:w-[350px] shrink-0 mt-12 md:mt-0">
-        <div data-aos="drop-bounce" className="relative flex justify-center w-full">
-          <div className="absolute -top-32 left-1/2 w-3 h-40 bg-black transform -translate-x-1/2 shadow-inner z-0" />
-          <div className="absolute -top-6 left-1/2 w-6 h-12 bg-gray-300 rounded border border-gray-400 transform -translate-x-1/2 z-10 shadow-[0_2px_10px_rgba(0,0,0,0.3)]" />
-          <div className="bg-gray-900 w-full max-w-[280px] rounded-2xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative z-20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-            <div className="absolute -top-3 left-1/2 w-16 h-6 bg-gray-900 rounded-t-xl transform -translate-x-1/2 flex justify-center items-center">
-              <div className="w-8 h-2 bg-black/30 rounded-full shadow-inner" />
-            </div>
-            <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-800 border-2 border-transparent">
-              <img
-                src={stackImage}
-                alt={`${personalInfo.name} — ${personalInfo.title}`}
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-          </div>
-        </div>
+        <HangingPortrait />
       </div>
 
       <div data-aos="fade-left" data-aos-delay="200" className="flex-1 text-white mt-8 md:mt-0 relative z-20">
