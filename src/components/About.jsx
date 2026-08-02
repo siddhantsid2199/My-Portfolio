@@ -48,10 +48,16 @@ const About = () => (
             <StackMark short="BI" label="Power BI" color="rgba(255,196,0,.35)" />
           </div>
           <div data-aos="zoom-in" data-aos-delay="450" className="hover:scale-110 transition-transform duration-300">
-            <StackMark short="MF" label="Microsoft Fabric" color="rgba(170,70,255,.35)" />
+            <StackMark short="PY" label="Python" color="rgba(170,70,255,.35)" />
           </div>
           <div data-aos="zoom-in" data-aos-delay="600" className="hover:scale-110 transition-transform duration-300">
-            <StackMark short="PP" label="Power Platform" color="rgba(0,120,255,.35)" />
+            <StackMark short="MF" label="Microsoft Fabric" color="rgba(80,180,255,.35)" />
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="750" className="hover:scale-110 transition-transform duration-300">
+            <StackMark short="SQL" label="SQL" color="rgba(255,255,255,.25)" />
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="900" className="hover:scale-110 transition-transform duration-300">
+            <StackMark short="AX" label="Alteryx" color="rgba(0,120,255,.35)" />
           </div>
         </div>
       </div>

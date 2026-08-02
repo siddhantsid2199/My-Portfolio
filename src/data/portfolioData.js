@@ -4,14 +4,14 @@ export const personalInfo = {
   name: "Siddhant Singh",
   firstName: "Siddhant",
   brandName: "Siddhant Singh",
-  title: "Business Applications Developer & Senior Data Analyst",
+  title: "Data Analyst | Business Intelligence & AI Analytics",
   location: "Massachusetts, USA",
   phone: "+1 (617) 413-5248",
   emails: {
-    primary: "singh.siddhant2@northeastern.edu",
+    primary: "siddhantsid2199@gmail.com",
   },
   summary:
-    "Business applications developer and senior data analyst specializing in Power BI, Microsoft Fabric, Power Platform, SharePoint, workflow automation, and data-driven operational transformation.",
+    "Data Analyst with 4 years of experience turning multi-source data into automated reporting and executive insight through SQL, Python, Power BI, Alteryx, semantic models, KPI dashboards, and AI-enabled analytics workflows.",
   resumeUrl: "/Siddhant_Singh_Resume.pdf",
 };
 
@@ -23,9 +23,10 @@ export const socialLinks = {
 
 export const heroContent = {
   greeting: "Hi, I'm Siddhant Singh",
-  titleHighlight: "Business Applications Developer",
+  titleHighlight: "Data Analyst @",
+  titleCompany: "Viatris",
   subtitle:
-    "I build intelligent analytics products, automated workflows, and decision-ready business applications with Power BI, Microsoft Fabric, and Power Platform.",
+    "I turn multi-source data into automated reporting, semantic models, KPI dashboards, and executive insights with SQL, Python, Power BI, and Alteryx.",
   ctaPrimary: { text: "View My Work", href: "#projects" },
   ctaSecondary: {
     text: "Contact Me",
@@ -36,8 +37,8 @@ export const heroContent = {
 
 export const aboutContent = {
   heading: "Hello!",
-  bio: `I'm <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Siddhant Singh</span>, a business applications developer and senior data analyst who turns complex operational data into scalable analytics products, automated workflows, and clear executive decisions. My work spans Power BI, Microsoft Fabric, Power Platform, SharePoint, Python, SQL, and enterprise process improvement.`,
-  techStack: ["Power BI", "Microsoft Fabric", "Power Platform"],
+  bio: `I'm <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Siddhant Singh</span>, a Data Analyst with 4 years of experience turning multi-source data into automated reporting and executive insight. I build ETL pipelines, semantic models, and KPI dashboards with SQL, Python, Power BI, and Alteryx, while embedding AI and GenAI tools into analytics workflows to accelerate delivery and scale self-service reporting.`,
+  techStack: ["Power BI", "Python", "Microsoft Fabric", "SQL", "Alteryx"],
 };
 
 export const technicalSkills = {
@@ -46,6 +47,7 @@ export const technicalSkills = {
       title: "Business Intelligence",
       skills: [
         { name: "Power BI", level: 95 },
+        { name: "Tableau", level: 90 },
         { name: "DAX", level: 92 },
         { name: "Power Query / M", level: 92 },
         { name: "Semantic Modeling", level: 90 },
@@ -60,6 +62,7 @@ export const technicalSkills = {
         { name: "Power Automate", level: 92 },
         { name: "SharePoint", level: 92 },
         { name: "Copilot Studio", level: 84 },
+        { name: "GenAI / LLM Integration", level: 86 },
       ],
     },
     {
@@ -79,14 +82,15 @@ export const technicalSkills = {
         { name: "Azure", level: 84 },
         { name: "Alteryx", level: 92 },
         { name: "Workflow Automation", level: 94 },
-        { name: "MySQL", level: 84 },
+        { name: "ETL Pipelines", level: 92 },
       ],
     },
     {
       title: "Analytics & Planning",
       skills: [
-        { name: "Excel", level: 95 },
+        { name: "Microsoft Excel", level: 95 },
         { name: "Power Query", level: 94 },
+        { name: "Power Pivot", level: 90 },
         { name: "PivotTables", level: 92 },
         { name: "Simulation Modeling", level: 90 },
         { name: "Data Storytelling", level: 92 },
@@ -283,24 +287,15 @@ export const projects = [
 export const experienceList = [
   {
     organization: "Viatris Inc.",
-    role: "Senior Data Analyst",
+    role: "Data Analyst",
     duration: "March 2026 — Present",
     location: "USA",
     highlights: [
-      "Built a SharePoint site and Power Apps application for 40+ users, feeding a Power BI-powered weekly operational review.",
-      "Automated SharePoint workflows and reporting with Power Automate, reducing repetitive manual tasks by 24%.",
-      "Designed 5+ Power BI dashboards on Microsoft Fabric semantic models for three major technology-transfer projects.",
-      "Developed a Copilot Studio agent adopted by five senior directors and a PySpark/Fabric mini data warehouse using ADF and Delta Lake.",
-    ],
-  },
-  {
-    organization: "Northeastern University",
-    role: "Teaching & Research Assistant",
-    duration: "September 2025 — December 2025",
-    location: "USA",
-    highlights: [
-      "Guided 90+ students in Power BI, narrative visualization, data storytelling, and GenAI-assisted analytics.",
-      "Delivered rubric-aligned feedback using Copilot in Power BI, LLM-assisted DAX, and modern analytics workflows.",
+      "Developed a simulation model to forecast project timelines and volumes as part of a $1B+ tech-transfer project to minimize regulatory and inventory costs, enabling leadership decisions on risk tradeoffs",
+      "Transformed a legacy Excel model into an automated Alteryx workflow integrated with Python simulation and Power BI, cutting manual update time from 6+ hours to under 10 minutes",
+      "Improved report performance by 30% for 4 weekly performance metrics by integrating data from SAP S/4HANA, Rapid Response, and Datacube (OLAP) into unified analytics pipelines using Alteryx, Python, SQL, and Power BI",
+      "Designed 9+ Power BI dashboards on semantic models in Microsoft Fabric (DAX, Power Query/M) for budget tracking and risk escalation across 4 projects that ranked in the top 3% of dashboards at Viatris",
+      "Building a PySpark-based data warehouse on Microsoft Fabric with Azure Data Factory orchestration and Delta Lake medallion architecture, feeding Power BI semantic models and SQL queries",
     ],
   },
   {
@@ -309,9 +304,21 @@ export const experienceList = [
     duration: "July 2024 — December 2024",
     location: "USA",
     highlights: [
-      "Developed forecasting simulations for a $1B+ technology-transfer program.",
-      "Replaced a legacy Excel process with Alteryx, Python, and Power BI, reducing update time from 6+ hours to under 10 minutes.",
-      "Built simulation tools for 40+ planners across ten sites and Power BI dashboards ranked in Viatris' top 3%.",
+      "Translated complex business requirements from Senior Directors/VP leadership into detailed technical specifications, configuring automated pipelines, metrics, and executive visuals, accelerating systemwide adoption across 4+ global teams",
+      "Enhanced reporting capabilities, designed and optimized 100+ SQL queries and PL/SQL packages, and created Power BI dashboards for Senior Directors and Lead Specialists",
+      "Built ETL pipelines and optimized 50+ Alteryx workflows to automate forecast vs. actual variance analysis, feeding Power BI executive dashboards and cutting reporting cycle time by 28%",
+      "Delivered a solution using Power Apps, SharePoint, and Dataverse integrating multiple reports using Power Automate to capture and submit operational data, integrated with Microsoft Copilot Studio agent, adopted by 5 Lead Specialists",
+      "Streamlined reporting with Power Automate workflows on SharePoint lists to de-duplicate multi-value fields, append version-controlled comments, and automate ad-hoc report summaries and emails, reducing manual tasks by 24%",
+      "Owned 4 Excel simulation tools leveraging Power Query, Power Pivot, DAX measures, what-if scenario modeling, dynamic array formulas, and nested SUMIFS/VLOOKUP logic, adopted by 40 planners across 10 sites",
+    ],
+  },
+  {
+    organization: "Northeastern University",
+    role: "Teaching & Research Assistant",
+    duration: "September 2025 — December 2025",
+    location: "USA",
+    highlights: [
+      "Guided 90+ students on Power BI dashboards, narrative visualization design, leveraging GenAI tools (Copilot in Power BI, LLM-drafted DAX, MCP) to deliver rubric-aligned feedback grounded in data-storytelling principles and BI design",
     ],
   },
   {
@@ -320,9 +327,10 @@ export const experienceList = [
     duration: "October 2020 — July 2023",
     location: "India",
     highlights: [
-      "Built 8+ Power BI dashboards for yield, WIP, logistics, and material usage, improving logistics efficiency by 20%.",
-      "Processed 15M+ records with SQL to optimize order grouping and delivery prioritization, reducing analysis time by 25%.",
-      "Led a five-person analytics team through Agile delivery across global time zones.",
+      "Initiated end-to-end development of 8+ Tableau dashboards tracking yield, WIP, and logistics KPIs and material usage trends, identifying operational bottlenecks and delivering actionable insights that improved logistics efficiency by 20%",
+      "Supported Integrated Business Planning (IBP) and sourcing initiatives by analyzing sales forecasts, production capacity, and supplier performance data, applying Lean Six Sigma methodologies to improve planning accuracy",
+      "Pioneered a logistics optimization approach with SQL for procurement and production teams, processing 15M+ records to group similar orders and prioritize delivery dates, cutting analysis time by 25%",
+      "Led a high-performing analytics team of 5 through Agile sprint cycles, coordinating deliverables, resolving blockers, and ensuring on-time delivery of enterprise BI assets across global time zones",
     ],
   },
 ];
@@ -373,9 +381,9 @@ export const certificates = {
 
 export const footerContent = {
   taglines: [
-    "Business Applications & Analytics",
-    "Power BI · Fabric · Power Platform",
-    "Automation that drives decisions",
+    "Business Intelligence & AI Analytics",
+    "SQL · Python · Power BI · Alteryx",
+    "Data-driven insights for decisions",
   ],
   credential: "MS Data Analytics Engineering · GPA 4.0",
   copyright: `© ${new Date().getFullYear()} Siddhant Singh | Built with React`,

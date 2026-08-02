@@ -20,7 +20,7 @@ const Experience = () => (
             key={`${item.organization}-${item.role}`}
             data-aos="fade-up"
             data-aos-delay={index * 120}
-            className="bg-black/20 backdrop-blur-md border border-white/10 rounded-3xl p-7 md:p-8 hover:scale-[1.01] hover:bg-black/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.25)] transition-all duration-500"
+            className="bg-black border border-white/15 rounded-3xl p-7 md:p-8 hover:scale-[1.01] hover:shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition-all duration-500"
           >
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
               <div>
@@ -35,7 +35,7 @@ const Experience = () => (
             <ul className="space-y-3">
               {item.highlights.map((highlight) => (
                 <li key={highlight} className="flex gap-3 text-red-50/90 text-sm leading-relaxed font-medium">
-                  <span className="text-black font-black mt-0.5">→</span>
+                  <span className="text-[#ff2a2a] font-black mt-0.5">→</span>
                   <span>{highlight}</span>
                 </li>
               ))}
