@@ -6,6 +6,7 @@ import heroPoster from '../assets/siddhant/hero-image.png';
 import { heroContent, socialLinks } from '../data/portfolioData';
 
 const Hero = () => {
+  const heroSectionRef = useRef(null);
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -15,13 +16,51 @@ const Hero = () => {
       once: true,
       easing: 'ease-out'
     });
-    // Video does NOT autoplay anymore
+
+    const video = videoRef.current;
+    const heroSection = heroSectionRef.current;
+    if (!video || !heroSection) return undefined;
+
+    // Attempt a single sound-on autoplay. Browsers that block it fall back
+    // silently to the existing Play control.
+    video.muted = false;
+    video.play().catch(() => {
+      setIsPlaying(false);
+    });
+
+    const pauseVideo = () => {
+      if (!video.paused) video.pause();
+    };
+
+    const visibilityHandler = () => {
+      if (document.hidden) pauseVideo();
+    };
+
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.35) {
+          pauseVideo();
+        }
+      },
+      { threshold: [0, 0.35] }
+    );
+
+    heroObserver.observe(heroSection);
+    document.addEventListener('visibilitychange', visibilityHandler);
+
+    return () => {
+      heroObserver.disconnect();
+      document.removeEventListener('visibilitychange', visibilityHandler);
+    };
   }, []);
 
   const toggleVideo = async (e) => {
     e.stopPropagation();
     if (videoRef.current) {
       if (videoRef.current.paused) {
+        if (videoRef.current.ended) {
+          videoRef.current.currentTime = 0;
+        }
         try {
           await videoRef.current.play();
           setIsPlaying(true);
@@ -36,11 +75,10 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
+    <section ref={heroSectionRef} id="home" className="relative w-full h-screen overflow-hidden bg-black">
       {/* Background Video */}
       <video
         ref={videoRef}
-        loop
         poster={heroPoster}
         playsInline
         preload="metadata"
@@ -193,8 +231,14 @@ const Hero = () => {
               </svg>
             )}
           </div>
-          <span className="text-white text-[10px] md:text-xs font-bold tracking-widest uppercase opacity-70 group-hover:opacity-100 transition-opacity">
-            {isPlaying ? "Pause" : "Play Reel"}
+          <span
+            className={`text-[11px] md:text-sm font-black tracking-[0.18em] uppercase px-4 py-2 rounded-full border shadow-[0_8px_24px_rgba(0,0,0,0.28)] transition-all duration-300 ${
+              isPlaying
+                ? 'bg-black/80 text-white border-white/30'
+                : 'bg-white text-black border-white group-hover:bg-yellow-300 group-hover:border-yellow-300 group-hover:scale-105'
+            }`}
+          >
+            {isPlaying ? "Pause" : "Play"}
           </span>
         </div>
       </div>

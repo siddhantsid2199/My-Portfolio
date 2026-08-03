@@ -4,7 +4,7 @@ export const personalInfo = {
   name: "Siddhant Singh",
   firstName: "Siddhant",
   brandName: "Siddhant Singh",
-  title: "Data Analyst | Business Intelligence & AI Analytics",
+  title: "Data Analyst & AI Analyst & Business Intelligence",
   location: "Massachusetts, USA",
   phone: "+1 (617) 413-5248",
   emails: {
@@ -381,7 +381,7 @@ export const certificates = {
 
 export const footerContent = {
   taglines: [
-    "Business Intelligence & AI Analytics",
+    "Data Analyst & AI Analyst & Business Intelligence",
     "SQL · Python · Power BI · Alteryx",
     "Data-driven insights for decisions",
   ],

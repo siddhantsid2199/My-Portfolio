@@ -18,7 +18,7 @@ This project was built to:
 
 The page follows this content flow:
 
-1. **Hero** — Full-screen visual introduction with Siddhant's portrait as the video poster, professional positioning, social profiles, portfolio navigation, resume download, and an interactive Play Reel control.
+1. **Hero** — Full-screen visual introduction with Siddhant's portrait as the video poster, professional positioning, social profiles, portfolio navigation, resume download, and an interactive Play control.
 2. **About** — Professional summary and core analytics stack with an elastic hanging portrait that can be dragged with a mouse or touch and springs back into position.
 3. **My Skillset** — Categorized proficiency cards covering business intelligence, Power Platform, programming, data engineering, and analytics.
 4. **Professional Journey** — Resume-aligned experience cards with roles, dates, locations, and verbatim achievement bullets.
@@ -48,7 +48,8 @@ The first four projects are intentionally pinned in that order. Remaining projec
 
 ## Key Interactions
 
-- **Play Reel:** Starts and pauses the hero talking video without autoplaying it on initial load.
+- **Play:** The site attempts to play the talking video once with sound. If the browser blocks sound-on autoplay, the poster and highlighted Play control remain available without showing an error.
+- **Playback safeguards:** The reel never loops, pauses when the Hero leaves the viewport or the browser tab becomes hidden, and does not restart automatically when the visitor returns.
 - **Video poster:** Displays the hero image before playback and while the video loads.
 - **Elastic portrait:** Supports constrained pointer and touch dragging; the thread stretches and changes angle before the portrait springs back.
 - **Scroll animation:** Content enters using configured AOS transitions while Framer Motion drives interactive and scroll-linked motion.
@@ -202,7 +203,7 @@ Do not commit real environment values or private credentials.
 Before publishing an update:
 
 1. Confirm the hero image and MP4 load correctly.
-2. Test Play Reel with mouse and keyboard.
+2. Test the Play control with mouse and keyboard.
 3. Test the elastic About portrait with mouse and touch input.
 4. Verify the resume, certificate, recommendation, project, GitHub, LinkedIn, and Tableau links.
 5. Submit the contact form using the intended EmailJS configuration or email fallback.
@@ -227,4 +228,4 @@ For hosted EmailJS delivery, add the three `VITE_EMAILJS_*` values to the hostin
 ## Author
 
 **Siddhant Singh**<br>
-Data Analyst — Business Intelligence & AI Analytics
+Data Analyst & AI Analyst & Business Intelligence
