@@ -18,17 +18,17 @@ This project was built to:
 
 The page follows this content flow:
 
-1. **Hero** — Full-screen visual introduction with Siddhant's portrait as the video poster, professional positioning, social profiles, portfolio navigation, resume download, and an interactive Play control.
-2. **About** — Professional summary and core analytics stack with an elastic hanging portrait that can be dragged with a mouse or touch and springs back into position.
-3. **My Skillset** — Categorized proficiency cards covering business intelligence, Power Platform, programming, data engineering, and analytics.
-4. **Professional Journey** — Resume-aligned experience cards with roles, dates, locations, and verbatim achievement bullets.
-5. **My Process** — A compact visual explanation of how research, design, analysis, and delivery turn ideas into practical solutions.
-6. **Featured Projects** — Responsive two-column case-study cards with project imagery, business outcomes, technology tags, documents, GitHub repositories, and demos where available.
-7. **Recommendation** — Side-by-side professional recommendations from Northeastern University and Viatris, with full-screen image viewing.
-8. **Education** — Academic background and graduate credentials.
-9. **Certificates** — Direct access to professional certification PDFs.
-10. **Contact** — A responsive contact form with EmailJS support and a prefilled email fallback.
-11. **Footer** — Professional positioning, credentials, social links, and closing navigation.
+1. **Hero** : Full-screen visual introduction with Siddhant's portrait as the video poster, professional positioning, social profiles, portfolio navigation, resume download, and an interactive Play control.
+2. **About** : Professional summary and core analytics stack with an elastic hanging portrait that can be dragged with a mouse or touch and springs back into position.
+3. **My Skillset** : Categorized proficiency cards covering business intelligence, Power Platform, programming, data engineering, and analytics.
+4. **Professional Journey** : Resume-aligned experience cards with roles, dates, locations, and verbatim achievement bullets.
+5. **My Process** : A compact visual explanation of how research, design, analysis, and delivery turn ideas into practical solutions.
+6. **Featured Projects** : Responsive two-column case-study cards with project imagery, business outcomes, technology tags, documents, GitHub repositories, and demos where available.
+7. **Recommendation** : Side-by-side professional recommendations from Northeastern University and Viatris, with full-screen image viewing.
+8. **Education** : Academic background and graduate credentials.
+9. **Certificates** : Direct access to professional certification PDFs.
+10. **Contact** : A responsive contact form with EmailJS support and a prefilled email fallback.
+11. **Footer** : Professional positioning, credentials, social links, and closing navigation.
 
 ## Featured Projects
 
