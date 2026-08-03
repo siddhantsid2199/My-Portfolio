@@ -154,7 +154,7 @@ const Hero = () => {
             className="text-white text-3xl md:text-5xl font-bold mb-4 tracking-tight"
           >
             {heroContent.greeting} <br />{' '}
-            <span className="text-black">
+            <span className="inline-flex flex-wrap items-baseline gap-x-2 mt-2 px-3 py-1.5 md:px-4 md:py-2 rounded-xl bg-[#ff2a2a]/90 border border-black/15 text-black backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               {heroContent.titleHighlight}{' '}
               <span className="text-yellow-300">{heroContent.titleCompany}</span>
             </span>
