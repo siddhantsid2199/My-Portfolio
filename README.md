@@ -1,4 +1,4 @@
-# Siddhant Singh — Data Analytics Portfolio
+# Siddhant Singh: Data Analytics Portfolio
 
 A cinematic, responsive portfolio presenting Siddhant Singh's work as a Data Analyst specializing in business intelligence, AI-enabled analytics, performance reporting, KPI analytics, and data-driven decision-making.
 
